@@ -10,9 +10,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-
-
 app.post('/submit', dataCon.createEntry, (req, res) => res.send(req.body));
 
 app.post('/delete', dataCon.delete, (req, res) => res.send('hey'));

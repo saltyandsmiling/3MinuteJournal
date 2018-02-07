@@ -15,7 +15,7 @@ class App extends React.Component {
     this.state = {
       value: ['', '', '', '', '', '', '', '', ''],
       text: ['Today I am grateful for...', 'What would make today great...', 'I am...'],
-      i: 0,
+      componentIdx: 0,
       isLoading: false,
       inputStyle: {
         inputStyle: {
@@ -37,16 +37,11 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
-
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true});
-
     axios.get('http://localhost:3000/loadFetch')
          .then(res => this.setState({ value: res.data }))
-        // .then(data => this.setState({value: data, isLoading: false}))
-        // .then(data => console.log(data, 'we here'))
   }
 
   render() {
@@ -57,12 +52,12 @@ class App extends React.Component {
 
     const affirmVar = <Affirm handlePrev={this.handlePrev} handleSubmit={this.handleSubmit} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>;
 
-    const compArr = [gratefulVar, greatVar, affirmVar];
+    const componentArr = [gratefulVar, greatVar, affirmVar];
 
     return (
         <MuiThemeProvider>
 
-          {compArr[this.state.i]}
+          {componentArr[this.state.componentIdx]}
 
         </MuiThemeProvider>
     );
@@ -84,16 +79,16 @@ class App extends React.Component {
 
   handleNext(e) {
     e.preventDefault();
-    let newState = this.state.i;
+    let newState = this.state.componentIdx;
     newState += 1;
-    this.setState({ i: newState });
+    this.setState({ componentIdx: newState });
   }
 
   handlePrev(e) {
     e.preventDefault();
-    let newState = this.state.i;
+    let newState = this.state.componentIdx;
     newState -= 1;
-    this.setState({ i: newState });
+    this.setState({ componentIdx: newState });
 
   }
 
