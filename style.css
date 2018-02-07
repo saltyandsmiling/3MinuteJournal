@@ -31,10 +31,47 @@ form {
 
 #welcome {
     font-family: Roboto;
+    font-size: 50px;
     position: fixed;
     top: 50%;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
 
+}
+
+.welcome-enter {
+    opacity: 0.01;
+}
+
+.welcome-enter.welcome-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.welcome-leave {
+    opacity: 1;
+}
+
+.welcome-leave.welcome-leave-active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-out;
+}
+
+.entry-enter {
+    opacity: 0.01;
+}
+
+.entry-enter.entry-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.entry-leave {
+    opacity: 1;
+}
+
+.entry-leave.entry-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-out;
 }

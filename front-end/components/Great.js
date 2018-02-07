@@ -4,6 +4,9 @@ import { white, lightWhite } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 
 class Great extends React.Component {
+  componentWillUnmount () {
+    this.props.handleTransitionEnd();
+  }
 
   render () {
 
