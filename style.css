@@ -1,0 +1,40 @@
+html, body{
+    height: 100%;
+    color: white;
+}
+body {
+    background-image: url('background.jpeg');
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
+
+}
+
+form {
+    text-align: center;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    border: white solid;
+    border-radius: 4px;
+    width: 500px;
+    height: 230px;
+    padding: 0 25px;
+}
+
+#welcome {
+    font-family: Roboto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+
+}

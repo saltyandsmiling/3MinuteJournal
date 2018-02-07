@@ -1,0 +1,28 @@
+{
+  "name": "react-from-scratch",
+  "version": "1.0.0",
+  "description": "react app from scratch",
+  "main": "./front-end/main.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "cors": "^2.8.4",
+    "material-ui": "^0.20.0",
+    "moment": "^2.20.1",
+    "mongoose": "^5.0.3",
+    "nodemon": "^1.14.12",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
