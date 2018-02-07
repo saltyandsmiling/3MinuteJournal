@@ -51,7 +51,7 @@ dataController.loadFetch = (req, res, next) => {
 };
 
 dataController.delete = (req, res, next) => {
-  Entry.findOneAndRemove({ createdAt: 'Feb 6th 18' }, (err) => {
+  Entry.findOneAndRemove({ createdAt: todaysDate}, (err) => {
     if (err) throw err;
   });
   next();

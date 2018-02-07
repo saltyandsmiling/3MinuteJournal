@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField'
 import { white, lightWhite } from 'material-ui/styles/colors';
@@ -7,6 +8,7 @@ import axios from 'axios';
 import Grateful from './Grateful'
 import Great from './Great'
 import Affirm from './Affirm'
+import Welcome from "./Welcome";
 
 
 class App extends React.Component {
@@ -16,7 +18,7 @@ class App extends React.Component {
       value: ['', '', '', '', '', '', '', '', ''],
       text: ['Today I am grateful for...', 'What would make today great...', 'I am...'],
       componentIdx: 0,
-      isLoading: false,
+      transitionEnd: true,
       inputStyle: {
         inputStyle: {
           color: white,
@@ -37,30 +39,68 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
+    this.handleTransitionEnd = this.handleTransitionEnd.bind(this)
   }
 
+
   componentDidMount() {
+    setTimeout(() => this.setState({
+      componentIdx: 1,
+      transitionEnd: false
+    }), 2000);
     axios.get('http://localhost:3000/loadFetch')
          .then(res => this.setState({ value: res.data }))
   }
 
+
   render() {
-
-    const gratefulVar = <Grateful handleNext={this.handleNext} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>;
-
-    const greatVar = <Great handlePrev={this.handlePrev} handleNext={this.handleNext} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>;
-
-    const affirmVar = <Affirm handlePrev={this.handlePrev} handleSubmit={this.handleSubmit} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>;
-
-    const componentArr = [gratefulVar, greatVar, affirmVar];
 
     return (
         <MuiThemeProvider>
-
-          {componentArr[this.state.componentIdx]}
+          <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}>
+            {this.renderWelcome()}
+            {this.renderGrateful()}
+            {this.renderGreat()}
+            {this.renderAffirm()}
+        </ReactCSSTransitionGroup>
 
         </MuiThemeProvider>
     );
+  }
+
+  renderWelcome() {
+    if (this.state.componentIdx === 0) {
+      return (
+          <Welcome key={0} handleTransitionEnd={this.handleTransitionEnd}/>
+      )
+    }
+  }
+
+  renderGrateful() {
+    if (this.state.componentIdx === 1 && this.state.transitionEnd) {
+      return (
+          <Grateful key={1} handleTransitionEnd={this.handleTransitionEnd} handleNext={this.handleNext} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>
+      )
+    }
+  }
+
+  renderGreat() {
+    if (this.state.componentIdx === 2 && this.state.transitionEnd) {
+      return (
+          <Great key={2} handleTransitionEnd={this.handleTransitionEnd} handlePrev={this.handlePrev} handleNext={this.handleNext} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>
+      )
+    }
+  }
+
+  renderAffirm() {
+    if (this.state.componentIdx === 3 && this.state.transitionEnd) {
+      return (
+          <Affirm key={3} handleTransitionEnd={this.handleTransitionEnd} handlePrev={this.handlePrev} handleSubmit={this.handleSubmit} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>
+      )
+    }
   }
 
   handleSubmit(e) {
@@ -74,23 +114,36 @@ class App extends React.Component {
   handleChange(e) {
     const newState = this.state.value.slice();
     newState[e.target.id] = e.target.value;
-    this.setState({ value: newState });
+    this.setState({
+      value: newState,
+    });
   }
 
   handleNext(e) {
     e.preventDefault();
     let newState = this.state.componentIdx;
     newState += 1;
-    this.setState({ componentIdx: newState });
+    this.setState({
+      componentIdx: newState,
+      transitionEnd: false
+    });
   }
 
   handlePrev(e) {
     e.preventDefault();
     let newState = this.state.componentIdx;
     newState -= 1;
-    this.setState({ componentIdx: newState });
+    this.setState({
+      componentIdx: newState,
+      transitionEnd: false
+    });
+  }
 
+  handleTransitionEnd() {
+    this.setState({ transitionEnd: true });
   }
 
 }
 export default App;
+
+
