@@ -58,14 +58,20 @@ class App extends React.Component {
     return (
         <MuiThemeProvider>
           <ReactCSSTransitionGroup
-            transitionName="example"
+            transitionName="welcome"
             transitionEnterTimeout={500}
             transitionLeaveTimeout={500}>
             {this.renderWelcome()}
+          </ReactCSSTransitionGroup>
+
+          <ReactCSSTransitionGroup
+            transitionName="entry"
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}>
             {this.renderGrateful()}
             {this.renderGreat()}
             {this.renderAffirm()}
-        </ReactCSSTransitionGroup>
+          </ReactCSSTransitionGroup>
 
         </MuiThemeProvider>
     );

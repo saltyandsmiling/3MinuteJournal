@@ -40,20 +40,38 @@ form {
 
 }
 
-.example-enter {
+.welcome-enter {
     opacity: 0.01;
 }
 
-.example-enter.example-enter-active {
+.welcome-enter.welcome-enter-active {
     opacity: 1;
     transition: opacity 500ms ease-in;
 }
 
-.example-leave {
+.welcome-leave {
     opacity: 1;
 }
 
-.example-leave.example-leave-active {
+.welcome-leave.welcome-leave-active {
     opacity: 0.01;
     transition: opacity 500ms ease-out;
+}
+
+.entry-enter {
+    opacity: 0.01;
+}
+
+.entry-enter.entry-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.entry-leave {
+    opacity: 1;
+}
+
+.entry-leave.entry-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-out;
 }
