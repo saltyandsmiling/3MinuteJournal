@@ -1,3 +1,7 @@
+/*
+INSIDE REACT ROUTER
+ */
+
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField'
@@ -7,7 +11,8 @@ import axios from 'axios';
 import Grateful from './Grateful'
 import Great from './Great'
 import Affirm from './Affirm'
-//soon to be react-router
+import { BrowerRouter as Router, Route, Link} from 'react-router-dom'
+
 
 class App extends React.Component {
   constructor() {
@@ -56,9 +61,16 @@ class App extends React.Component {
 
     return (
         <MuiThemeProvider>
+          <Router>
+            {/*{componentArr[this.state.componentIdx]}*/}
+            {/*{Grateful}*/}
+            <div>
+              <Route exact path="/" exact component={Great}/>
+              <Route path="/makeitgreat" component={greatVar}/>
+              <Route path="/giveyourselfwhatyouneed" component={affirmVar}/>
+            </div>
 
-          {componentArr[this.state.componentIdx]}
-
+          </Router>
         </MuiThemeProvider>
     );
   }

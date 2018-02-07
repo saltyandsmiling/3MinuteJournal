@@ -7,7 +7,7 @@ class Great extends React.Component {
 
   render () {
 
-    return <div className='centered'>
+    return (<div className='centered'>
       <br/>
       <form >
         <TextField fullWidth={true} floatingLabelText={this.props.text[1]} floatingLabelStyle={this.props.inputStyle.floatingLabelStyle} floatingLabelFocusStyle={this.props.inputStyle.floatingLabelFocusStyle} inputStyle={this.props.inputStyle.inputStyle} value={this.props.value[3]} id="3" onChange={this.props.onChange}/>
@@ -20,7 +20,7 @@ class Great extends React.Component {
 
         <FlatButton type="submit" label="Next" onClick={this.props.handleNext} style={this.props.inputStyle.floatingLabelFocusStyle}/>
       </form>
-    </div>
+    </div>)
   }
 }
 
