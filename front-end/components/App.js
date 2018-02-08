@@ -42,7 +42,7 @@ class App extends React.Component {
     this.handleTransitionEnd = this.handleTransitionEnd.bind(this)
   }
 
-
+  //handles welcome screen and fetches a daily entry if one exists in the database
   componentDidMount() {
     setTimeout(() => this.setState({
       componentIdx: 1,
@@ -52,10 +52,11 @@ class App extends React.Component {
          .then(res => this.setState({ value: res.data }))
   }
 
-
+  //parent component
   render() {
 
     return (
+        //material-ui wrapper and below that, animation wrapper
         <MuiThemeProvider>
           <ReactCSSTransitionGroup
             transitionName="welcome"
@@ -77,6 +78,7 @@ class App extends React.Component {
     );
   }
 
+  //components to be rendered based on index, separated out to handle animations
   renderWelcome() {
     if (this.state.componentIdx === 0) {
       return (
@@ -109,6 +111,9 @@ class App extends React.Component {
     }
   }
 
+  //event handlers
+
+  //sends to database to save or update
   handleSubmit(e) {
     e.preventDefault();
     const currentState = this.state.value;
@@ -117,6 +122,7 @@ class App extends React.Component {
     });
   }
 
+  //makes live changes to state as you type
   handleChange(e) {
     const newState = this.state.value.slice();
     newState[e.target.id] = e.target.value;
@@ -125,6 +131,7 @@ class App extends React.Component {
     });
   }
 
+  //moves to next component
   handleNext(e) {
     e.preventDefault();
     let newState = this.state.componentIdx;
@@ -135,6 +142,7 @@ class App extends React.Component {
     });
   }
 
+  //moves to previous component
   handlePrev(e) {
     e.preventDefault();
     let newState = this.state.componentIdx;
@@ -145,6 +153,7 @@ class App extends React.Component {
     });
   }
 
+  //resets transition flag
   handleTransitionEnd() {
     this.setState({ transitionEnd: true });
   }

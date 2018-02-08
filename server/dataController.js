@@ -13,7 +13,7 @@ dataController.createEntry = (req, res, next) => {
   const gratArr = [entries[0], entries[1], entries[2]];
   const intArr = [entries[3], entries[4], entries[5]];
   const affArr = [entries[6], entries[7], entries[8]];
-  Entry.find({}, (err, data) => console.log(data));
+
   //checks for a daily entry and updates or creates
   Entry.findOne({ createdAt: todaysDate}, (err, data) => {
     if (!data) {
