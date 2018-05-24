@@ -1,30 +1,40 @@
-import React, { PropTypes } from 'react';
-import TextField from 'material-ui/TextField'
+import React from 'react';
+import TextField from 'material-ui/TextField';
 import { white, lightWhite } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
+import PropTypes from 'prop-types';
 
 class Great extends React.Component {
-  componentWillUnmount () {
-    this.props.handleTransitionEnd();
+  componentWillUnmount() {
+    this.props.endTransition();
   }
 
-  render () {
-
-    return <div className='centered'>
-      <br/>
-      <form >
-        <TextField fullWidth={true} floatingLabelText={this.props.text[1]} floatingLabelStyle={this.props.inputStyle.floatingLabelStyle} floatingLabelFocusStyle={this.props.inputStyle.floatingLabelFocusStyle} inputStyle={this.props.inputStyle.inputStyle} value={this.props.value[3]} id="3" onChange={this.props.onChange}/>
-
-        <TextField fullWidth={true} inputStyle={this.props.inputStyle.inputStyle} value={this.props.value[4]} id="4" onChange={this.props.onChange}/>
-
-        <TextField fullWidth={true} inputStyle={this.props.inputStyle.inputStyle} value={this.props.value[5]} id="5" onChange={this.props.onChange}/>
-
-        <FlatButton type="submit" label="Back" onClick={this.props.handlePrev} style={this.props.inputStyle.floatingLabelFocusStyle}/>
-
-        <FlatButton type="submit" label="Next" onClick={this.props.handleNext} style={this.props.inputStyle.floatingLabelFocusStyle}/>
-      </form>
-    </div>
+  render() {
+    const { text, onChange, value, handleNext, handlePrev } = this.props;
+    const colorWhite = { color: white };
+    const colorLightWhite = { color: lightWhite };
+    return (
+      <div className="centered">
+        <br />
+        <form >
+          <TextField fullWidth floatingLabelText={text[1]} floatingLabelStyle={colorWhite} floatingLabelFocusStyle={colorLightWhite} inputStyle={colorWhite} value={value[3]} id="3" onChange={onChange} />
+          <TextField fullWidth inputStyle={colorWhite} value={value[4]} id="4" onChange={onChange} />
+          <TextField fullWidth inputStyle={colorWhite} value={value[5]} id="5" onChange={onChange} />
+          <FlatButton type="submit" label="Back" onClick={handlePrev} style={colorLightWhite} />
+          <FlatButton type="submit" label="Next" onClick={handleNext} style={colorLightWhite} />
+        </form>
+      </div>
+    );
   }
 }
 
-export default Great
+Great.propTypes = {
+  endTransition: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  handleNext: PropTypes.func.isRequired,
+  handlePrev: PropTypes.func.isRequired,
+  text: PropTypes.checkPropTypes(PropTypes.array),
+  value: PropTypes.checkPropTypes(PropTypes.array),
+};
+
+export default Great;

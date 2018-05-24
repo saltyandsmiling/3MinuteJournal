@@ -1,20 +1,19 @@
-import React, { PropTypes } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class Welcome extends React.Component {
-  componentWillUnmount () {
-    this.props.handleTransitionEnd();
+  componentWillUnmount() {
+    this.props.endTransition();
   }
 
-  render () {
-
-    return (
-          <div id='welcome' key={1}>Hello Eric, welcome to today...</div>
-        )
-
+  render() {
+    return <div id="welcome" key={1}>Hello Eric, welcome to today...</div>;
   }
 }
 
-export default Welcome
+Welcome.propTypes = {
+  endTransition: PropTypes.func.isRequired,
+};
 
+export default Welcome;
