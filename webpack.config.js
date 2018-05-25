@@ -1,7 +1,7 @@
 
 
 var config = {
-  entry: './front-end/main.js', // entry point
+  entry: './views/main.js', // entry point
   output: {
     filename: './client/bundle.js', // place where bundled app will be served
   },
