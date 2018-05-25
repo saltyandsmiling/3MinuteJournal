@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { white, lightWhite } from 'material-ui/styles/colors';
 import Grateful from './Grateful';
 import Great from './Great';
 import Affirm from './Affirm';
@@ -35,7 +34,6 @@ class App extends React.Component {
 
   // parent component
   render() {
-
     return (
     // material-ui wrapper and below that, animation wrapper
       <MuiThemeProvider>
