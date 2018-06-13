@@ -71,7 +71,14 @@ class App extends React.Component {
   renderGrateful() {
     if (this.state.componentIdx === 1 && this.state.transitionEnd) {
       return (
-        <Grateful key={1} endTransition={this.endTransition} handleNext={this.handleNext} value={this.state.value} text={this.state.text} onChange={this.handleChange} />
+        <Grateful
+          key={1}
+          endTransition={this.endTransition}
+          handleNext={this.handleNext}
+          value={this.state.value}
+          text={this.state.text}
+          onChange={this.handleChange}
+        />
       );
     }
   }
@@ -79,7 +86,16 @@ class App extends React.Component {
   renderGreat() {
     if (this.state.componentIdx === 2 && this.state.transitionEnd) {
       return (
-        <Great key={2} endTransition={this.endTransition} handlePrev={this.handlePrev} handleNext={this.handleNext} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>
+        <Great
+          key={2}
+          endTransition={this.endTransition}
+          handlePrev={this.handlePrev}
+          handleNext={this.handleNext}
+          inputStyle={this.state.inputStyle}
+          value={this.state.value}
+          text={this.state.text}
+          onChange={this.handleChange}
+        />
       );
     }
   }
@@ -87,7 +103,16 @@ class App extends React.Component {
   renderAffirm() {
     if (this.state.componentIdx === 3 && this.state.transitionEnd) {
       return (
-        <Affirm key={3} endTransition={this.endTransition} handlePrev={this.handlePrev} handleSubmit={this.handleSubmit} inputStyle={this.state.inputStyle} value={this.state.value} text={this.state.text} onChange={this.handleChange}/>
+        <Affirm
+          key={3}
+          endTransition={this.endTransition}
+          handlePrev={this.handlePrev}
+          handleSubmit={this.handleSubmit}
+          inputStyle={this.state.inputStyle}
+          value={this.state.value}
+          text={this.state.text}
+          onChange={this.handleChange}
+        />
       );
     }
   }
@@ -95,10 +120,7 @@ class App extends React.Component {
   // sends to database to save or update
   handleSubmit(e) {
     e.preventDefault();
-    // const currentState = this.state.value;
-    // axios.post('http://localhost:3000/submit', currentState).then(function (response) {
-    //   console.log(response);
-    // });
+    // this will at some point send journal updates back to be written to the db
   }
 
   // updates form values in state
@@ -128,7 +150,7 @@ class App extends React.Component {
     newState -= 1;
     this.setState({
       componentIdx: newState,
-      transitionEnd: false
+      transitionEnd: false,
     });
   }
 
@@ -136,6 +158,5 @@ class App extends React.Component {
   endTransition() {
     this.setState({ transitionEnd: true });
   }
-
 }
 export default App;

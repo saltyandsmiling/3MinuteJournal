@@ -17,11 +17,39 @@ class Great extends React.Component {
       <div className="centered">
         <br />
         <form >
-          <TextField fullWidth floatingLabelText={text[1]} floatingLabelStyle={colorWhite} floatingLabelFocusStyle={colorLightWhite} inputStyle={colorWhite} value={value[3]} id="3" onChange={onChange} />
-          <TextField fullWidth inputStyle={colorWhite} value={value[4]} id="4" onChange={onChange} />
-          <TextField fullWidth inputStyle={colorWhite} value={value[5]} id="5" onChange={onChange} />
-          <FlatButton type="submit" label="Back" onClick={handlePrev} style={colorLightWhite} />
-          <FlatButton type="submit" label="Next" onClick={handleNext} style={colorLightWhite} />
+          <TextField
+            fullWidth
+            floatingLabelText={text[1]}
+            floatingLabelStyle={colorWhite}
+            floatingLabelFocusStyle={colorLightWhite}
+            inputStyle={colorWhite} value={value[3]}
+            id="3"
+            onChange={onChange}
+          />
+          <TextField
+            fullWidth
+            inputStyle={colorWhite}
+            value={value[4]}
+            id="4"
+            onChange={onChange}
+          />
+          <TextField
+            fullWidthinputStyle={colorWhite}
+            value={value[5]} id="5"
+            onChange={onChange}
+          />
+          <FlatButton
+            type="submit"
+            label="Back"
+            onClick={handlePrev}
+            style={colorLightWhite}
+          />
+          <FlatButton
+            type="submit"
+            label="Next"
+            onClick={handleNext}
+            style={colorLightWhite}
+          />
         </form>
       </div>
     );

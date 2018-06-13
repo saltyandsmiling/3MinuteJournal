@@ -14,7 +14,7 @@ const config = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['env', 'react'] // use env and react
+          presets: ['env', 'react'], // use env and react
         },
       },
     ],

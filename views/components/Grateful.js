@@ -17,10 +17,34 @@ class Grateful extends React.Component {
       <div className="centered">
         <br />
         <form >
-          <TextField fullWidth floatingLabelText={text[0]} floatingLabelStyle={colorWhite} floatingLabelFocusStyle={colorLightWhite} inputStyle={colorWhite} value={value[0]} id="0" onChange={onChange} />
-          <TextField fullWidth inputStyle={colorWhite} value={value[1]} id="1" onChange={onChange} />
-          <TextField fullWidth inputStyle={colorWhite} value={value[2]} id="2" onChange={onChange} />
-          <FlatButton type="submit" label="Next" onClick={handleNext} style={colorLightWhite} />
+          <TextField
+            fullWidth
+            floatingLabelText={text[0]}
+            floatingLabelStyle={colorWhite}
+            floatingLabelFocusStyle={colorLightWhite}
+            inputStyle={colorWhite} value={value[0]}
+            id="0"
+            onChange={onChange}
+          />
+          <TextField
+            fullWidth
+            inputStyle={colorWhite}
+            value={value[1]} id="1"
+            onChange={onChange}
+          />
+          <TextField
+            fullWidth
+            inputStyle={colorWhite}
+            value={value[2]}
+            id="2"
+            onChange={onChange}
+          />
+          <FlatButton
+            type="submit"
+            label="Next"
+            onClick={handleNext}
+            style={colorLightWhite}
+          />
         </form>
       </div>
     );

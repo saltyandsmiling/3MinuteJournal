@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
 
 class Affirm extends React.Component {
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.props.endTransition();
   }
 
@@ -18,11 +18,40 @@ class Affirm extends React.Component {
       <div className="centered" onSubmit={handleSubmit}>
         <br />
         <form >
-          <TextField fullWidth floatingLabelText={text[2]} floatingLabelStyle={colorWhite} floatingLabelFocusStyle={colorLightWhite} inputStyle={colorWhite} value={value[6]} id="6" onChange={onChange} />
-          <TextField fullWidth inputStyle={colorWhite} value={value[7]} id="7" onChange={onChange} />
-          <TextField fullWidth inputStyle={colorWhite} value={value[8]} id="8" onChange={onChange} />
-          <FlatButton type="submit" label="Back" onClick={handlePrev} style={colorLightWhite} />
-          <FlatButton type="submit" label="Submit" style={colorLightWhite} />
+          <TextField
+            fullWidth
+            floatingLabelText={text[2]}
+            floatingLabelStyle={colorWhite}
+            floatingLabelFocusStyle={colorLightWhite}
+            inputStyle={colorWhite}
+            value={value[6]}
+            id="6"
+            onChange={onChange}
+          />
+          <TextField
+            fullWidth
+            inputStyle={colorWhite}
+            value={value[7]} id="7"
+            onChange={onChange}
+          />
+          <TextField
+            fullWidth
+            inputStyle={colorWhite}
+            value={value[8]}
+            id="8"
+            onChange={onChange}
+          />
+          <FlatButton
+            type="submit"
+            label="Back"
+            onClick={handlePrev}
+            style={colorLightWhite}
+          />
+          <FlatButton
+            type="submit"
+            label="Submit"
+            style={colorLightWhite}
+          />
         </form>
       </div>
     );
